@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài liệu thư viện</title>
+    <link rel="stylesheet" href="assets/css/borrow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="./assets/img/icon.svg" />
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <main class="library-container">
+        <!-- Improved Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                
+                <div class="search-box-container">
+                    <div class="search-field-selector">
+                        <select id="search-field">
+                            <option value="title">Nhan đề</option>
+                            <option value="author">Tác giả</option>
+                            <option value="publisher">Nhà xuất bản</option>
+                            <option value="year">Năm xuất bản</option>
+                            <option value="classification">Ký hiệu phân loại</option>
+                            <option value="isbn">ISBN/ISSN</option>
+                        </select>
+                    </div>
+                    
+                    <div class="keyword-input">
+                        <input type="text" id="search-keyword" placeholder="Nhập từ khóa để tìm kiếm">
+                    </div>
+                    
+                    <div class="search-button">
+                        <button id="search-button"><i class="fas fa-search"></i> Tìm kiếm</button>
+                    </div>
+                </div>
+                
+                <div class="advanced-filters">
+                    <div class="filter-group">
+                        <label for="author-filter">Tác giả</label>
+                        <select id="author-filter">
+                            <option value="all">Tất cả tác giả</option>
+                            <option value="author1">Nguyễn Văn A</option>
+                            <option value="author2">Trần Thị B</option>
+                            <!-- More options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="year-filter">Năm xuất bản</label>
+                        <select id="year-filter">
+                            <option value="all">Tất cả năm</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <!-- More options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="type-filter">Loại tài liệu</label>
+                        <select id="type-filter">
+                            <option value="all">Tất cả loại</option>
+                            <option value="book">Sách</option>
+                            <option value="thesis">Luận văn</option>
+                            <option value="journal">Tạp chí</option>
+                            <option value="newspaper">Báo</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="availability-filter">Tình trạng</label>
+                        <select id="availability-filter">
+                            <option value="all">Tất cả</option>
+                            <option value="available">Có sẵn</option>
+                            <option value="borrowed">Đã mượn</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Display Section -->
+        <section class="books-display">
+            <div class="books-grid" id="books-grid">
+                <!-- Books will be displayed here -->
+                <div class="no-books-message" style="display: none;">
+                    <i class="fas fa-book-open" style="font-size: 3rem; color: #7f8c8d; margin-bottom: 15px;"></i>
+                    <h3>Không tìm thấy tài liệu phù hợp</h3>
+                    <p>Hãy thử thay đổi tiêu chí tìm kiếm của bạn</p>
+                </div>
+            </div>
+            
+            <div class="selected-books-preview" id="selected-books-preview">
+                <!-- Selected books will appear here in a horizontal row -->
+            </div>
+        </section>
+
+        <!-- Borrowing Form Section -->
+        <section class="borrowing-form-section" id="borrowing-form">
+            <div class="form-header">
+                <span class="logo"></span>
+                <div class="header-content">
+                    <span class="library-name">PTIT Library</span>
+                    <span class="school-name">Posts and Telecommunications Institute of Technology</span>
+                </div>
+            </div>
+
+            <div class="form-meta-data">
+                <div class="form-title">
+                    <span class="title">Phiếu mượn sách</span>
+                    <span><i>Số phiếu</i>: <span id="form-register-number">#325467</span></span>
+                    <span class="register-date"><i>Ngày đăng ký</i>: <span id="form-register-date">11/12/2024</span></span>
+                </div>
+                <div class="form-information">
+                    <span class="title">Thông tin người mượn</span>
+                    <span class="form-to"><i>Họ tên</i>:
+                        <input id="input-name" type="text" placeholder="Họ và tên" required /></span>
+                    <span class="form-student-id"><i>Mã sinh viên</i>:
+                        <input id="input-student-id" type="text" placeholder="Mã sinh viên" required /></span>
+                    <span class="form-class"><i>Lớp</i>:
+                        <input id="input-class" type="text" placeholder="Tên lớp" required /></span>
+                    <span class="form-email"><i>Email</i>:
+                        <input id="input-email" type="email" style="min-width: 272px" placeholder="@stu.ptit.edu.vn" required /></span>
+                </div>
+            </div>
+
+            <table id="form-books-table">
+                
+                <tbody>
+                    <!-- Rows will be added dynamically -->
+                </tbody>
+            </table>
+
+            <div class="form-table-data">
+                <div class="form-total">
+                    <span><i>Tổng số sách</i>: <span id="form-total-books">0</span></span>
+                    <span class="register-date"><i>Ngày đăng ký</i>: <span id="form-register-date2">11/12/2024</span></span>
+                    <span class="due-date"><i>Hạn trả</i>: <span id="form-due-date">11/12/2024</span></span>
+                </div>
+                <div class="form-signature">
+                    <span id="signature-name">Chữ ký</span>
+                    <span id="signature-full-name">Họ và tên</span>
+                </div>
+            </div>
+
+            <div class="form-footer">
+                <span><i>Thư viện PTIT</i></span>
+                <span>Địa chỉ: Km10, Nguyễn Trãi, Hà Đông, Hà Nội, Việt Nam</span>
+                <span>Website: http://ptit.edu.vn</span>
+            </div>
+            
+            <div class="form-actions">
+                <button id="print-form-btn" class="btn-print"><i class="fas fa-print"></i> In phiếu</button>
+                <button id="save-form-btn" class="btn-save"><i class="fas fa-save"></i> Lưu PDF</button>
+                <button id="clear-form-btn" class="btn-clear"><i class="fas fa-trash-alt"></i> Xóa phiếu</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="assets/js/borrow.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        // Load header and footer
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('header-container').innerHTML = data);
+            
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('footer-container').innerHTML = data);
+            
+            // Set current date for the form
+            const today = new Date();
+            const dueDate = new Date();
+            dueDate.setDate(today.getDate() + 14); // 2 weeks from now
+            
+            document.getElementById('form-register-date').textContent = formatDate(today);
+            document.getElementById('form-register-date2').textContent = formatDate(today);
+            document.getElementById('form-due-date').textContent = formatDate(dueDate);
+            
+            // Generate random form number
+            document.getElementById('form-register-number').textContent = '#' + Math.floor(100000 + Math.random() * 900000);
+        });
+        
+        function formatDate(date) {
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+    </script>
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <script>
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById("footer-container").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+    </script>
+</body>
+</html>
