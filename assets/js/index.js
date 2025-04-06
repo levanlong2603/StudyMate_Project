@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Redirect to dashboard
-        window.location.href = '.home.html';
+        window.location.href = 'home.html';
     }
 
     // Generate a mock token (for demo only)
@@ -233,3 +233,4 @@ document.addEventListener('DOMContentLoaded', function() {
         passwordInput.focus();
     }
 });
+
