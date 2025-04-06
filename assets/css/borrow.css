@@ -303,6 +303,8 @@ body {
 }
 
 .form-header .logo {
+    position: relative;
+    left: 1.5cm;
     height: 80px;
 }
 
@@ -430,7 +432,8 @@ body {
 #signature-name {
     font-size: 1.5rem;
     margin-bottom: 4rem;
-    padding-right: 4cm;
+    position: relative;
+    right: 5cm;
 }
 
 #signature-name::after {
@@ -446,7 +449,8 @@ body {
 #signature-full-name {
     font-weight: 600;
     font-size: 1.5rem;
-    padding-right: 4cm;
+    position: relative;
+    right: 5cm;
 }
 
 .form-footer {
