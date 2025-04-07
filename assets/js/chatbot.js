@@ -302,11 +302,11 @@ class StudyMateChatbot {
 
   getHelpResponse() {
     return `Mình có thể giúp bạn với các chức năng sau:\n\n` +
-      `🔍 <strong>Tìm kiếm tài liệu:</strong> Tìm giáo trình, bài giảng, đề thi theo môn học\n` +
-      `📂 <strong>Quản lý tài liệu cá nhân:</strong> Lưu trữ và tổ chức tài liệu của bạn\n` +
-      `🏫 <strong>Kết nối thư viện PTIT:</strong> Tìm sách, tài liệu từ thư viện trường\n` +
-      `⏰ <strong>Nhắc nhở học tập:</strong> Thiết lập lịch học, nhắc hạn nộp bài\n\n` +
-      `Bạn cần hỗ trợ cụ thể về mục nào ạ?`;
+    `🔍 Tìm kiếm tài liệu: Tìm giáo trình, bài giảng, đề thi theo môn học\n` +
+    `📂 Quản lý tài liệu cá nhân: Lưu trữ và tổ chức tài liệu của bạn\n` +
+    `🏫 Kết nối thư viện PTIT: Tìm sách, tài liệu từ thư viện trường\n` +
+    `⏰ Nhắc nhở học tập: Thiết lập lịch học, nhắc hạn nộp bài\n\n` +
+    `Bạn cần hỗ trợ cụ thể về mục nào ạ?`;
   }
 
   isDocumentSearch(message) {
@@ -321,13 +321,20 @@ class StudyMateChatbot {
     if (subject) {
       // Simulate API call to search for documents
       try {
-        const results = await this.searchDocuments(subject);
+        const results = [
+          { title: "Giáo trình học cơ bản", type: "PDF", link: "https://example.com/giáo-trình" },
+          { title: "Bài giảng môn học", type: "PPT", link: "https://example.com/bài-giảng" },
+          { title: "Đề thi cuối kỳ học", type: "PDF", link: "https://example.com/đề-thi" },
+          { title: "Đề thi cuối kỳ học", type: "PDF", link: "https://example.com/đề-thi" }
+        ];
+        
         
         if (results.length > 0) {
-          let response = `Mình tìm thấy ${results.length} tài liệu về <strong>${subject}</strong>:\n\n`;
+          let response = `Mình tìm thấy ${results.length} tài liệu về ${subject}:\n\n`;
+        
           results.slice(0, 3).forEach(doc => {
-            response += `📄 <strong>${doc.title}</strong> - ${doc.type}\n`;
-            response += `🔗 <a href="${doc.link}" target="_blank">Xem tài liệu</a>\n\n`;
+            response += `📄 ${doc.title} - ${doc.type}\n`;
+            response += `🔗 ${doc.link}\n\n`;
           });
           
           if (results.length > 3) {
@@ -335,7 +342,9 @@ class StudyMateChatbot {
           }
           
           return response;
-        } else {
+        }
+        
+        else {
           return `Mình không tìm thấy tài liệu nào về <strong>${subject}</strong>. Bạn muốn tìm kiếm với từ khóa khác không?`;
         }
       } catch (error) {
