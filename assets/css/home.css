@@ -117,11 +117,11 @@ a {
 }
 /* Hero Search */
 .hero-search {
-    background-color: rgba(95, 33, 33, 0.9);
+    background-color: rgba(247, 246, 246, 0.9);
     border-radius: 8px;
-    padding: 30px;
+    padding: 20px;
     box-shadow: var(--shadow);
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .search-container {
@@ -140,7 +140,7 @@ a {
 }
 
 .search-input:focus {
-    box-shadow: 0 0 0 3px rgba(229, 30, 42, 0.3);
+    box-shadow: 0 0 0 3px rgba(236, 236, 236, 0.3);
 }
 
 .search-button {
