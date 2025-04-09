@@ -283,29 +283,30 @@ body {
 .remove-book-btn:hover {
     background: #c0392b;
 }
-
 /* Borrowing Form Section */
 .borrowing-form-section {
     background: white;
-    padding: 2.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    margin-top: 3rem;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 24px;
     display: none;
-    font-size: 1.1rem; /* Tăng kích thước chữ cơ bản */
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form-header {
     display: flex;
-    padding-left: 1cm;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    padding-left: 10px;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
 }
 
 .form-header .logo {
-    position: relative;
-    left: 1.5cm;
     height: 80px;
+    margin-right: 15px;
 }
 
 .header-content {
@@ -313,69 +314,67 @@ body {
     flex-direction: column;
     align-items: flex-end;
     gap: 4px;
-    padding-top: 1cm;
-    padding-left: 16cm;
+    margin-left: auto;
+    padding-right: 20px;
 }
 
 .library-name {
-    font-size: 2.5rem;
+    font-size: 24px;
     font-weight: 700;
-    color: var(--primary-color);
+    color: #e61717; /* primary color */
 }
 
 .school-name {
-    font-size: 2rem;
+    font-size: 18px;
     color: #7f8c8d;
 }
-
 
 .form-meta-data {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
-    padding-right: 2cm;
+    margin-bottom: 20px;
+    padding-right: 20px;
 }
 
 .form-title, .form-information {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 8px;
 }
 
 .form-title .title {
-    padding-left: 1cm;
-    font-size: 2.5rem;
+    padding-left: 10px;
+    font-size: 24px;
     font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+    color: #e61717; /* primary color */
+    margin-bottom: 10px;
 }
 
 .form-title span, .form-information span {
     display: flex;
-    font-size: 1.5rem;
-    padding-left: 1cm;
-
+    font-size: 16px;
+    padding-left: 10px;
 }
 
 .form-information .title {
-    font-size: 2.5rem;
+    font-size: 24px;
     font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    color: #e61717; /* primary color */
+    margin-bottom: 8px;
 }
 
 .form-information input {
-    padding: 0.6rem 1.1rem;
+    padding: 6px 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 1.5rem;
-    margin-left: 1rem;
-    transition: var(--transition);
+    font-size: 16px;
+    margin-left: 10px;
+    transition: all 0.3s ease;
 }
 
 .form-information input:focus {
     outline: none;
-    border-color: var(--secondary-color);
+    border-color: #e61717; /* secondary color */
     box-shadow: 0 0 0 3px rgba(226, 23, 23, 0.2);
 }
 
@@ -383,20 +382,20 @@ body {
 #form-books-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
 }
 
 #form-books-table th, #form-books-table td {
-    padding: 1.5rem 1cm 1.5rem 1cm;
+    padding: 12px 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-    font-size: 1.3em;
+    font-size: 16px;
 }
 
 #form-books-table th {
     background-color: #f8f9fa;
     font-weight: 600;
-    color: var(--dark-color);
+    color: #333; /* dark color */
 }
 
 #form-books-table tr:hover {
@@ -407,39 +406,40 @@ body {
 .form-table-data {
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 20px;
 }
 
 .form-total {
-    padding-left: 1cm;
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 8px;
 }
 
 .form-total span {
-    font-size: 1.5rem;
+    font-size: 16px;
 }
 
 .form-signature {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 30px;
 }
 
 #signature-name {
-    font-size: 1.5rem;
-    margin-bottom: 4rem;
+    font-size: 16px;
+    margin-bottom: 40px;
     position: relative;
-    right: 5cm;
+    right: 50px;
 }
 
 #signature-name::after {
     content: "";
-    bottom: -3.5rem;
-    left: 200%;
-    transform: translateX(50%);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 200px;
     height: 1px;
     background-color: #333;
@@ -447,19 +447,19 @@ body {
 
 #signature-full-name {
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 16px;
     position: relative;
-    right: 5cm;
+    right: 50px;
 }
 
 .form-footer {
-    margin-top: 3rem;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.3rem;
+    gap: 4px;
     color: #7f8c8d;
-    font-size: 1.2rem;
+    font-size: 14px;
 }
 
 /* Form Actions */

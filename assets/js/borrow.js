@@ -558,20 +558,57 @@ function displayDocuments(docsToDisplay) {
         updateSelectedDocumentsPreview();
     }
     
-    // Print form
     function printForm() {
         if (!validateForm()) return;
         
-        // Temporarily hide buttons for printing
+        // Lưu trữ trạng thái ban đầu
         const formActions = document.querySelector('.form-actions');
-        formActions.style.display = 'none';
+        const originalDisplay = formActions.style.display;
+        const originalBodyOverflow = document.body.style.overflow;
         
+        // Ẩn các phần tử không cần in
+        formActions.style.display = 'none';
+        document.body.style.overflow = 'visible'; // Đảm bảo hiển thị đầy đủ nội dung
+        
+        // Tạo style in ấn tạm thời
+        const style = document.createElement('style');
+        style.id = 'temp-print-style';
+        style.innerHTML = `
+            @media print {
+                body * {
+                    visibility: hidden;
+                }
+                #borrowing-form, 
+                #borrowing-form * {
+                    visibility: visible;
+                }
+                #borrowing-form {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                    box-shadow: none;
+                }
+                @page {
+                    size: A4;
+                    margin: 10mm;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Kích hoạt chức năng in
         window.print();
         
-        // Show buttons again after printing
+        // Khôi phục trạng thái ban đầu
         setTimeout(() => {
-            formActions.style.display = 'flex';
-        }, 500);
+            document.head.removeChild(style);
+            formActions.style.display = originalDisplay;
+            document.body.style.overflow = originalBodyOverflow;
+        }, 1000); // Thời gian đủ để hoàn tất quá trình in
     }
     
     // Save form as PDF
