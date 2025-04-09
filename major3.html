@@ -4,10 +4,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Công nghệ Thông tin</title>
+        <title>Khoa học Máy tính</title>
         <link rel="stylesheet" href="./assets/css/reset.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
         <link rel="stylesheet" href="./assets/css/major.css" />
+        <link rel="stylesheet" href="assets/css/chatbot.css">
         <link rel="icon" href="./assets/img/icon.svg" />
         <link
             rel="stylesheet"
@@ -21,13 +22,13 @@
 
         <div class="major-container">
             <div class="major-header">
-                <h1>Chuyên ngành Công nghệ Thông tin</h1>
+                <h1>Chuyên ngành Khoa học Máy tính</h1>
                 <p class="major-description">
-                    Chuyên ngành Công nghệ Thông tin trang bị cho sinh viên kiến
-                    thức chuyên sâu về lập trình, cấu trúc dữ liệu và giải
-                    thuật, hệ điều hành, cơ sở dữ liệu, trí tuệ nhân tạo, an
-                    toàn thông tin, phát triển phần mềm và các công nghệ tiên
-                    tiến trong lĩnh vực công nghệ số.
+                    Chuyên ngành Khoa học Máy tính trang bị cho sinh viên kiến thức nền 
+                    tảng về lập trình, giải thuật, trí tuệ nhân tạo, xử lý dữ liệu, 
+                    và bảo mật. Sinh viên được rèn luyện tư duy logic và kỹ năng xây 
+                    dựng các hệ thống phần mềm thông minh, đáp ứng yêu cầu của cuộc 
+                    cách mạng công nghệ số.
                 </p>
             </div>
 
@@ -795,28 +796,26 @@
                     <div class="document-details">
                         <h3 class="document-title">Tên tài liệu</h3>
                         <div class="document-meta">
-                            <span class="credit"
-                                ><img src="./assets/img/icon-tc.svg" alt="" /> 3
-                                TC</span
-                            >
-                            <span class="subject" id="subject_mon"
-                                >Môn: Triết học Mác-Lênin</span
-                            >
+                            <span class="credit">
+                                <img src="./assets/img/icon-tc.svg" alt="" /> 
+                                <span class="credit-value">3 TC</span>
+                            </span>
+                            <span class="subject" id="subject_mon">Môn: Triết học Mác-Lênin</span>
                             <span class="type">Loại: Giáo trình</span>
                         </div>
                         <div class="document-actions">
-                            <a href="#" class="download-btn">
-                                <span class="material-symbols-outlined"
-                                    >download</span
-                                >
+                            <a href="#" class="download-btn" target="_blank" id="downloadLink">
+                                <span class="material-symbols-outlined">download</span>
                                 Tải xuống
                             </a>
-                            <a href="#" class="view-online-btn">
-                                <span class="material-symbols-outlined"
-                                    >visibility</span
-                                >
+                            <a href="#" class="view-online-btn" target="_blank" id="viewOnlineLink">
+                                <span class="material-symbols-outlined">visibility</span>
                                 Xem trực tuyến
                             </a>
+                        </div>
+                        <div class="no-document-notice" id="noDocumentNotice" style="display: none;">
+                            <span class="material-symbols-outlined">info</span>
+                            <span>Hiện chưa có tài liệu</span>
                         </div>
                     </div>
                 </div>
@@ -824,9 +823,7 @@
                     <h4>Tài liệu liên quan</h4>
                     <div class="related-list">
                         <div class="related-item">
-                            <span class="material-symbols-outlined"
-                                >picture_as_pdf</span
-                            >
+                            <span class="material-symbols-outlined">picture_as_pdf</span>
                             <span>Slide bài giảng</span>
                         </div>
                         <div class="related-item">
@@ -837,9 +834,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Footer sẽ được include từ file riêng -->
-        <div id="footer-placeholder"></div>
 
         <script>
             $(document).ready(function () {
@@ -861,81 +855,90 @@
                     }
                 });
 
+                // Tạo mapping giữa tên môn học và link Google Drive
+                const documentLinks = {
+                    "Triết học Mác-Lênin": "https://drive.google.com/drive/folders/1Z6mAuOr57O7PQirz43q0vcaP-j6Jec47",
+                    "Pháp luật đại cương": "https://drive.google.com/drive/folders/1r0KUQF4dg8QeWvXkBZObEXKiviHH9Olg",
+                    "Kinh tế chính trị Mác-Lênin": "https://drive.google.com/drive/folders/1kTGD-NYWcGI4OQZDWsPwb42zmYq9t8QS",
+                    "Chủ nghĩa xã hội khoa học": "https://drive.google.com/drive/folders/1hL1yUttY_gEby4nv4DEud157dXILQYMH",
+                    "Tư tưởng Hồ Chí Minh": "https://drive.google.com/drive/folders/1vcC9vMb5Um4XgW0WMJJllYGZXpV84AHZ",
+                    "Vật lý ứng dụng": "https://drive.google.com/drive/folders/17YcWwFm0Zf8WCL6E8qeIPPd6oK6WG5LD",
+                    "Tiếng Anh (Course 3)": "https://drive.google.com/drive/folders/1ASmYPHV4B21Tsl85oqoB4Hqqn2sagrYI",
+                    "Tin học cơ sở 1": "https://drive.google.com/drive/folders/1twZBnjvMYiJZmaqU64MKdt9gTkD3-PYi",
+                    "Giải tích 1": "https://drive.google.com/drive/folders/1oEUkOkihlyHxHMsiW6ErssJSc9lcwIBN",
+                    "Đại số": "https://drive.google.com/drive/folders/1oEUkOkihlyHxHMsiW6ErssJSc9lcwIBN",
+                    "Tin học cơ sở 2": "https://drive.google.com/drive/folders/1xl5WXFvn7hM-ztRNtJtLpowowXRoBic1",
+                    "Giải tích 2": "https://drive.google.com/drive/folders/1oEUkOkihlyHxHMsiW6ErssJSc9lcwIBN",
+                    "Xác suất thống kê": "https://drive.google.com/drive/folders/1GCrNX15CjHlIe8GZsKpm6x4WiSqfkfQK",
+                    "Ngôn ngữ lập trình C++": "https://drive.google.com/drive/folders/1xYfFc5Pf0HLht-2fwrHWAiB6_KCovlOe",
+                    "Xử lý tín hiệu số": "https://drive.google.com/drive/folders/1ZorNHJSGuffxKCLG5S08A_gS0AjOG7dS",
+                    "Toán rời rạc 1": "https://drive.google.com/drive/folders/1tCGQaNT1EElb69Hz5JJKCDyF3gY7MEPX",
+                    "Toán rời rạc 2": "https://drive.google.com/drive/folders/1ON7bhfY50U1g8nrJIzbC4gA_U1CkiUxf",
+                    "Kiến trúc máy tính": "https://drive.google.com/drive/folders/1HE1Vfg_avVRQp9aDrHdcgQQzYI332KhQ",
+                    "Cấu trúc dữ liệu và giải thuật": "https://drive.google.com/drive/folders/1coBxXApKozTaUTZM6hhEccO627tgohBA",
+                    "Lý thuyết thông tin": "https://drive.google.com/drive/folders/1mIkLQkn5H0F6zEy2g6BEAebuBceD3uqV",
+                    "Lập trình hướng đối tượng": "https://drive.google.com/drive/folders/1QbUpahRUhBV7vFbvliX1xUDpZe302tbC",
+                    "Hệ điều hành": "https://drive.google.com/drive/folders/1OAjuiC8BD7ieROHjclvnGmGSKhExlhWX"
+                };
+
                 // Xử lý mở modal xem tài liệu
                 $(".view-doc-btn").click(function () {
-                    // // Lấy thông tin môn học từ hàng được click
-                    // const subject = $(this)
-                    //     .closest("tr")
-                    //     .find("td:eq(1)")
-                    //     .text();
-                    // const credits = $(this)
-                    //     .closest("tr")
-                    //     .find("td:eq(2)")
-                    //     .text();
-                    // const type = $(this).closest("tr").find(".badge").text();
-
-                    // Tìm hàng (tr) chứa nút được click
                     const row = $(this).closest("tr");
-                    console.log(row.html());
                     const tdCount = row.find("td").length;
-                    console.log(tdCount);
 
-                    // Lấy dữ liệu từ các cột tương ứng
-                    if (tdCount == 5) {
-                        const semester = row.find("td:eq(0)").text().trim(); // Tên môn học
-                        const subject = row.find("td:eq(1)").text().trim(); // Số tín chỉ
-                        const credits = row.find("td:eq(2)").text().trim(); // Số tín chỉ
-                        const type = row.find("td:eq(3) .badge").text().trim(); // Loại môn học
-
-                        console.log("SEMESTER: ", semester);
-                        console.log("SUBJECT: ", subject);
-                        console.log("CREDITS: ", credits);
-                        console.log("TYPE: ", type);
-
-                        // Đặt thông tin vào modal
-                        $("#documentModal .document-title").text(subject);
-                        $("#documentModal .credit").html(
-                            `<img src="./assets/img/icon-tc.svg" alt=""> ${credits} TC`
-                        );
-                        $("#documentModal .type").text(`Loại: ${type}`);
-                        $("#subject_mon").text(`Môn: ${subject}`);
-
-                        // Hiển thị modal
-                        $("#documentModal").fadeIn();
+                    let subject, credits, type;
+                    
+                    if (tdCount === 5) {
+                        subject = row.find("td:eq(1)").text().trim();
+                        credits = row.find("td:eq(2)").text().trim();
+                        type = row.find("td:eq(3) .badge").text().trim();
                     } else {
-                        const subject = row.find("td:eq(0)").text().trim(); // Số tín chỉ
-                        const credits = row.find("td:eq(1)").text().trim(); // Số tín chỉ
-                        const type = row.find("td:eq(2) .badge").text().trim(); // Loại môn học
-
-                        console.log("SUBJECT: ", subject);
-                        console.log("CREDITS: ", credits);
-                        console.log("TYPE: ", type);
-
-                        // Đặt thông tin vào modal
-                        $("#documentModal .document-title").text(subject);
-                        $("#documentModal .credit").html(
-                            `<img src="./assets/img/icon-tc.svg" alt=""> ${credits} TC`
-                        );
-                        $("#documentModal .type").text(`Loại: ${type}`);
-                        $("#subject_mon").text(`Môn: ${subject}`);
-
-                        // Hiển thị modal
-                        $("#documentModal").fadeIn();
+                        subject = row.find("td:eq(0)").text().trim();
+                        credits = row.find("td:eq(1)").text().trim();
+                        type = row.find("td:eq(2) .badge").text().trim();
                     }
+
+                    // Đặt thông tin vào modal
+                    $("#documentModal .document-title").text(subject);
+                    $("#documentModal .credit .credit-value").text(credits + " TC");
+                    $("#documentModal .type").text("Loại: " + type);
+                    $("#subject_mon").text("Môn: " + subject);
+
+                    // Kiểm tra xem môn học có tài liệu không
+                    const driveLink = documentLinks[subject];
+                    
+                    if (driveLink) {
+                        // Nếu có tài liệu
+                        $("#downloadLink").attr("href", driveLink).show();
+                        $("#viewOnlineLink").attr("href", driveLink).show();
+                        $("#noDocumentNotice").hide();
+                    } else {
+                        // Nếu không có tài liệu
+                        $("#downloadLink").hide();
+                        $("#viewOnlineLink").hide();
+                        $("#noDocumentNotice").show();
+                    }
+
+                    // Hiển thị modal
+                    $("#documentModal").fadeIn();
                 });
 
                 // Đóng modal
-                $(".close-modal").click(function () {
-                    $("#documentModal").fadeOut();
-                });
-
-                // Đóng modal khi click bên ngoài
-                $(window).click(function (e) {
-                    if (e.target === document.getElementById("documentModal")) {
+                $(".close-modal, #documentModal").click(function (e) {
+                    if ($(e.target).hasClass('close-modal') || $(e.target).is('#documentModal')) {
                         $("#documentModal").fadeOut();
                     }
                 });
+
+                // Ngăn modal đóng khi click vào nội dung modal
+                $(".modal-content").click(function(e) {
+                    e.stopPropagation();
+                });
             });
         </script>
+        <!-- Footer sẽ được include từ file riêng -->
+        <div id="footer-placeholder"></div>
+        <script src="assets/js/chatbot.js"></script>
+        
     </body>
 </html>
