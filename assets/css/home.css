@@ -134,7 +134,7 @@ a {
     padding: 15px 20px;
     border: 2px solid var(--primary-color);
     border-radius: 4px 0 0 4px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     outline: none;
     transition: var(--transition);
 }
@@ -181,7 +181,7 @@ a {
     transition: background-color 0.2s;
     color: #333;
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .search-result-item:hover {
@@ -197,6 +197,7 @@ a {
     color: #666;
     font-style: italic;
     text-align: left;
+    font-size: 1.3rem;
 }
 
 /* ===== Stats Section ===== */
