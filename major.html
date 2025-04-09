@@ -810,6 +810,10 @@
                                 Xem trực tuyến
                             </a>
                         </div>
+                        <div class="no-document-notice" id="noDocumentNotice" style="display: none;">
+                            <span class="material-symbols-outlined">info</span>
+                            <span>Hiện chưa có tài liệu</span>
+                        </div>
                     </div>
                 </div>
                 <div class="related-documents">
@@ -897,10 +901,20 @@
                     $("#documentModal .type").text("Loại: " + type);
                     $("#subject_mon").text("Môn: " + subject);
 
-                    // Thiết lập link cho các nút
-                    const driveLink = documentLinks[subject] || "#";
-                    $("#downloadLink").attr("href", driveLink);
-                    $("#viewOnlineLink").attr("href", driveLink);
+                    // Kiểm tra xem môn học có tài liệu không
+                    const driveLink = documentLinks[subject];
+                    
+                    if (driveLink) {
+                        // Nếu có tài liệu
+                        $("#downloadLink").attr("href", driveLink).show();
+                        $("#viewOnlineLink").attr("href", driveLink).show();
+                        $("#noDocumentNotice").hide();
+                    } else {
+                        // Nếu không có tài liệu
+                        $("#downloadLink").hide();
+                        $("#viewOnlineLink").hide();
+                        $("#noDocumentNotice").show();
+                    }
 
                     // Hiển thị modal
                     $("#documentModal").fadeIn();

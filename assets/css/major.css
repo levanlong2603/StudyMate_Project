@@ -343,3 +343,27 @@
     }
 }
 
+
+
+.no-document-notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background-color: #fff3cd;
+    color: #856404;
+    border-radius: 4px;
+    margin-top: 15px;
+    border: 1px solid #ffeeba;
+}
+
+.no-document-notice .material-symbols-outlined {
+    color: #ffc107;
+}
+
+.document-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
