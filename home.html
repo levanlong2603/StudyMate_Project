@@ -23,13 +23,18 @@
             <h1 class="hero-title">Hệ Thống Học Tập StudyMate</h1>
             <p class="hero-subtitle">Kết nối tri thức - Chia sẻ thành công</p>
             
-            <!-- Thanh tìm kiếm nổi bật -->
+            <!-- Thanh tìm kiếm nổi bật (đã được cải tiến) -->
             <div class="hero-search">
                 <div class="search-container">
-                    <input type="text" placeholder="Tìm kiếm tài liệu, đề thi, bài giảng..." class="search-input">
+                    <input type="text" 
+                        id="subjectSearch" 
+                        placeholder="Tìm kiếm tài liệu, đề thi, bài giảng..." 
+                        class="search-input"
+                        autocomplete="off">
                     <button class="search-button">
                         <span class="material-symbols-outlined">search</span>
                     </button>
+                    <div id="searchResults" class="search-results-dropdown"></div>
                 </div>
             </div>
         </div>
@@ -81,7 +86,7 @@
                         <span class="stat-downloads"><span class="material-symbols-outlined">download</span> 245</span>
                         <span class="stat-views"><span class="material-symbols-outlined">visibility</span> 1.2k</span>
                     </div>
-                    <a href="#" class="document-button">Xem chi tiết</a>
+                    <a href="https://drive.google.com/drive/folders/1QbUpahRUhBV7vFbvliX1xUDpZe302tbC" class="document-button" target="_blank" >Xem chi tiết</a>
                 </div>
             </div>
             
@@ -100,7 +105,7 @@
                         <span class="stat-downloads"><span class="material-symbols-outlined">download</span> 189</span>
                         <span class="stat-views"><span class="material-symbols-outlined">visibility</span> 980</span>
                     </div>
-                    <a href="#" class="document-button">Xem chi tiết</a>
+                    <a href="https://drive.google.com/drive/folders/1YeVF2nvFqsvLoYhrp05eDfB3J25r1_1z?hl=vi" class="document-button" target="_blank" >Xem chi tiết</a>
                 </div>
             </div>
             
@@ -120,7 +125,7 @@
                         <span class="stat-downloads"><span class="material-symbols-outlined">download</span> 320</span>
                         <span class="stat-views"><span class="material-symbols-outlined">visibility</span> 1.5k</span>
                     </div>
-                    <a href="#" class="document-button">Xem chi tiết</a>
+                    <a href="https://drive.google.com/drive/folders/1XkjO2ppLuWqlxEkHcz2GlftV2B50KbUz" class="document-button" target="_blank" >Xem chi tiết</a>
                 </div>
             </div>
             
@@ -139,7 +144,7 @@
                         <span class="stat-downloads"><span class="material-symbols-outlined">download</span> 210</span>
                         <span class="stat-views"><span class="material-symbols-outlined">visibility</span> 1.1k</span>
                     </div>
-                    <a href="#" class="document-button">Xem chi tiết</a>
+                    <a href="https://drive.google.com/drive/folders/1xl5WXFvn7hM-ztRNtJtLpowowXRoBic1" class="document-button" target="_blank">Xem chi tiết</a>
                 </div>
             </div>
         </div>
@@ -217,25 +222,105 @@
             })
             .catch(error => console.error("Error loading footer:", error));
         
-        // Xử lý tìm kiếm
-        $(document).ready(function() {
-            $('.search-button').click(function() {
-                performSearch();
-            });
+          // Dữ liệu môn học
+        const documentLinks = {
+            "Triết học Mác-Lênin": "https://drive.google.com/drive/folders/1Z6mAuOr57O7PQirz43q0vcaP-j6Jec47",
+            "Pháp luật đại cương": "https://drive.google.com/drive/folders/1r0KUQF4dg8QeWvXkBZObEXKiviHH9Olg",
+            "Kinh tế chính trị Mác-Lênin": "https://drive.google.com/drive/folders/1kTGD-NYWcGI4OQZDWsPwb42zmYq9t8QS",
+            "Chủ nghĩa xã hội khoa học": "https://drive.google.com/drive/folders/1hL1yUttY_gEby4nv4DEud157dXILQYMH",
+            "Tư tưởng Hồ Chí Minh": "https://drive.google.com/drive/folders/1vcC9vMb5Um4XgW0WMJJllYGZXpV84AHZ",
+            "Vật lý ứng dụng": "https://drive.google.com/drive/folders/17YcWwFm0Zf8WCL6E8qeIPPd6oK6WG5LD",
+            "Tiếng Anh (Course 3)": "https://drive.google.com/drive/folders/1ASmYPHV4B21Tsl85oqoB4Hqqn2sagrYI",
+            "Tin học cơ sở 1": "https://drive.google.com/drive/folders/1twZBnjvMYiJZmaqU64MKdt9gTkD3-PYi",
+            "Giải tích 1": "https://drive.google.com/drive/folders/1oEUkOkihlyHxHMsiW6ErssJSc9lcwIBN",
+            "Đại số": "https://drive.google.com/drive/folders/1oEUkOkihlyHxHMsiW6ErssJSc9lcwIBN",
+            "Tin học cơ sở 2": "https://drive.google.com/drive/folders/1xl5WXFvn7hM-ztRNtJtLpowowXRoBic1",
+            "Giải tích 2": "https://drive.google.com/drive/folders/1oEUkOkihlyHxHMsiW6ErssJSc9lcwIBN",
+            "Xác suất thống kê": "https://drive.google.com/drive/folders/1GCrNX15CjHlIe8GZsKpm6x4WiSqfkfQK",
+            "Ngôn ngữ lập trình C++": "https://drive.google.com/drive/folders/1xYfFc5Pf0HLht-2fwrHWAiB6_KCovlOe",
+            "Xử lý tín hiệu số": "https://drive.google.com/drive/folders/1ZorNHJSGuffxKCLG5S08A_gS0AjOG7dS",
+            "Toán rời rạc 1": "https://drive.google.com/drive/folders/1tCGQaNT1EElb69Hz5JJKCDyF3gY7MEPX",
+            "Toán rời rạc 2": "https://drive.google.com/drive/folders/1ON7bhfY50U1g8nrJIzbC4gA_U1CkiUxf",
+            "Kiến trúc máy tính": "https://drive.google.com/drive/folders/1HE1Vfg_avVRQp9aDrHdcgQQzYI332KhQ",
+            "Cấu trúc dữ liệu và giải thuật": "https://drive.google.com/drive/folders/1coBxXApKozTaUTZM6hhEccO627tgohBA",
+            "Lý thuyết thông tin": "https://drive.google.com/drive/folders/1mIkLQkn5H0F6zEy2g6BEAebuBceD3uqV",
+            "Lập trình hướng đối tượng": "https://drive.google.com/drive/folders/1QbUpahRUhBV7vFbvliX1xUDpZe302tbC",
+            "Hệ điều hành": "https://drive.google.com/drive/folders/1OAjuiC8BD7ieROHjclvnGmGSKhExlhWX"
+        };
+
+        // Hàm tìm kiếm
+        function searchSubjects(query) {
+            query = query.toLowerCase().trim();
+            if (!query) return [];
             
-            $('.search-input').keypress(function(e) {
-                if(e.which === 13) {
-                    performSearch();
-                }
-            });
+            return Object.keys(documentLinks).filter(subject => 
+                subject.toLowerCase().includes(query)
+            );
+        }
+
+        // Xử lý sự kiện khi nhập
+        document.getElementById('subjectSearch').addEventListener('input', function(e) {
+            const query = e.target.value;
+            const resultsContainer = document.getElementById('searchResults');
+            resultsContainer.innerHTML = '';
             
-            function performSearch() {
-                const query = $('.search-input').val();
-                const major = $('.filter-select:first').val();
-                const type = $('.filter-select:last').val();
+            if (query.length < 2) {
+                resultsContainer.style.display = 'none';
+                return;
+            }
+            
+            const results = searchSubjects(query);
+            
+            if (results.length > 0) {
+                results.forEach(subject => {
+                    const item = document.createElement('div');
+                    item.className = 'search-result-item';
+                    item.textContent = subject;
+                    item.addEventListener('click', () => {
+                        window.open(documentLinks[subject], '_blank');
+                    });
+                    resultsContainer.appendChild(item);
+                });
+                resultsContainer.style.display = 'block';
+            } else {
+                const noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                noResults.textContent = 'Hiện chưa có tài liệu cho môn này';
+                resultsContainer.appendChild(noResults);
+                resultsContainer.style.display = 'block';
+            }
+        });
+
+        // Ẩn dropdown khi click ra ngoài
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-container')) {
+                document.getElementById('searchResults').style.display = 'none';
+            }
+        });
+
+        // Xử lý khi nhấn nút search
+        document.querySelector('.search-button').addEventListener('click', function() {
+            const query = document.getElementById('subjectSearch').value.trim();
+            const results = searchSubjects(query);
+            
+            if (results.length > 0) {
+                window.open(documentLinks[results[0]], '_blank');
+            } else {
+                alert('Không tìm thấy tài liệu cho môn học này');
+            }
+        });
+
+        // Xử lý khi nhấn Enter
+        document.getElementById('subjectSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.trim();
+                const results = searchSubjects(query);
                 
-                // Xử lý tìm kiếm (có thể thay bằng AJAX call)
-                alert(`Tìm kiếm: ${query}\nChuyên ngành: ${major || 'Tất cả'}\nLoại: ${type || 'Tất cả'}`);
+                if (results.length > 0) {
+                    window.open(documentLinks[results[0]], '_blank');
+                } else {
+                    alert('Không tìm thấy tài liệu cho môn học này');
+                }
             }
         });
     </script>
