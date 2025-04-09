@@ -593,7 +593,7 @@ function displayDocuments(docsToDisplay) {
                     box-shadow: none;
                 }
                 @page {
-                    size: A4;
+                    size: auto;
                     margin: 10mm;
                 }
             }
