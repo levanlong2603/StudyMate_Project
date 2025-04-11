@@ -533,8 +533,8 @@ function displayDocuments(docsToDisplay) {
         
         if (docIndex === -1) {
             // Add to selected (limit to 10 documents)
-            if (selectedDocuments.length >= 10) {
-                alert('Bạn chỉ có thể mượn tối đa 10 tài liệu mỗi lần.');
+            if (selectedDocuments.length >= 5) {
+                alert('Bạn chỉ có thể mượn tối đa 5 tài liệu mỗi lần.');
                 return;
             }
             
