@@ -1,7 +1,5 @@
 # 🎓 StudyMate - Người Bạn Đồng Hành Học Tập Thông Minh
 
-![StudyMate Banner](https://levanlong2603.github.io/StuyMate_Project/assets/img/icon.svg)
-
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://levanlong2603.github.io/StuyMate_Project/)
 [![GitHub license](https://img.shields.io/github/license/levanlong2603/StuyMate_Project)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/levanlong2603/StuyMate_Project)](https://github.com/levanlong2603/StuyMate_Project/stargazers)
@@ -55,16 +53,13 @@ StudyMate là nền tảng web hỗ trợ sinh viên **tìm kiếm, quản lý v
 
 Truy cập ngay StudyMate tại:  
 👉 [https://levanlong2603.github.io/StuyMate_Project/](https://levanlong2603.github.io/StuyMate_Project/)
-
-## 📜 Giấy Phép
-
-Dự án được cấp phép theo [MIT License](LICENSE).
+![StudyMate Banner](https://levanlong2603.github.io/StuyMate_Project/assets/img/trangchu.jpg)
 
 ## 📞 Liên Hệ
 
 - Tác giả: **Lê Văn Long**
-- Email: [long.le@example.com](mailto:long.le@example.com) *(thay bằng email thực)*
-- GitHub: [@levanlong2603](https://github.com/levanlong2603)
+- Email: [Lê Văn Long](mailto:long2k4fahu@gm.com) 
+- GitHub: [RedChicken](https://github.com/levanlong2603)
 
 ---
 
