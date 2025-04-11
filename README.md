@@ -1,54 +1,71 @@
-https://levanlong2603.github.io/StuyMate_Project/
-# 🎓 StuyMate - Hệ Thống Quản Lý Học Tập Thông Minh
+# 🎓 StudyMate - Người Bạn Đồng Hành Học Tập Thông Minh
 
-![StuyMate Banner](https://via.placeholder.com/1200x400?text=StuyMate+Banner) <!-- Thay bằng banner thực tế -->
+![StudyMate Banner](https://levanlong2603.github.io/StuyMate_Project/assets/img/icon.svg)
 
-[![GitHub license](https://img.shields.io/github/license/levanlong2603/StuyMate_Project)](https://github.com/levanlong2603/StuyMate_Project/blob/main/LICENSE)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://levanlong2603.github.io/StuyMate_Project/)
+[![GitHub license](https://img.shields.io/github/license/levanlong2603/StuyMate_Project)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/levanlong2603/StuyMate_Project)](https://github.com/levanlong2603/StuyMate_Project/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/levanlong2603/StuyMate_Project)](https://github.com/levanlong2603/StuyMate_Project/issues)
 
-## 📌 Giới Thiệu
+## 🌟 Giới Thiệu
 
-StuyMate là nền tảng quản lý học tập toàn diện, kết nối sinh viên và giảng viên trong môi trường giáo dục hiện đại. Với giao diện thân thiện và các tính năng mạnh mẽ, StuyMate giúp tối ưu hóa quá trình học tập và giảng dạy.
+StudyMate là nền tảng web hỗ trợ sinh viên **tìm kiếm, quản lý và tối ưu hóa** tài liệu học tập với các tính năng thông minh:
 
-## ✨ Tính Năng Nổi Bật
+- 🔍 Tìm kiếm tài liệu theo môn học, chủ đề
+- 📚 Gợi ý tài liệu từ thư viện PTIT
+- 🧠 Hỗ trợ AI đề xuất tài liệu phù hợp
+- 💾 Quản lý tài liệu yêu thích cá nhân
 
-### 👨‍🎓 Cho Sinh Viên
-| Tính Năng | Mô Tả |
-|-----------|-------|
-| 📅 Thời khóa biểu | Xem lịch học theo tuần/tháng |
-| 📝 Quản lý bài tập | Theo dõi deadline và tiến độ |
-| 📊 Thống kê học tập | Biểu đồ đánh giá kết quả |
-| 💬 Thảo luận nhóm | Trao đổi bài với bạn học |
+## 🚀 Tính Năng Nổi Bật
 
-### 👨‍🏫 Cho Giảng Viên
-| Tính Năng | Mô Tả |
-|-----------|-------|
-| 🏫 Lớp học ảo | Quản lý danh sách sinh viên |
-| 📤 Đăng tải tài liệu | Chia sẻ bài giảng, bài tập |
-| ✅ Chấm điểm online | Nhập điểm và nhận xét |
-| 📈 Phân tích lớp | Thống kê điểm số lớp học |
+### � Tìm Kiếm Thông Minh
+- Tìm kiếm đa tiêu chí (từ khóa, môn học, tác giả)
+- Lọc kết quả theo độ phù hợp
+
+### 🎯 Gợi Ý Cá Nhân Hóa
+- Đề xuất tài liệu dựa trên lịch sử tìm kiếm
+- Gợi ý tài liệu liên quan tự động
+
+### 📂 Quản Lý Tài Liệu
+- Lưu trữ tài liệu yêu thích
+- Phân loại tài liệu theo danh mục
+
+### 🤖 Hỗ Trợ AI
+- Tóm tắt nội dung tài liệu
+- Đề xuất tài liệu học tập tiếp theo
+
+## 👥 Đối Tượng Người Dùng
+
+| Người Dùng | Lợi Ích |
+|------------|---------|
+| 👨‍🎓 Sinh viên | Tìm kiếm và quản lý tài liệu học tập hiệu quả |
+| 👩‍💼 Người dùng phổ thông | Tra cứu tài liệu không cần đăng nhập |
 
 ## 🛠 Công Nghệ Sử Dụng
 
 ### Frontend
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
-![Material-UI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
-### Backend
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+### Hỗ Trợ
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?logo=github&logoColor=white)
+![Material Icons](https://img.shields.io/badge/Material%20Icons-0081CB?logo=google&logoColor=white)
 
-## 🚀 Cách Cài Đặt
+## 🌐 Truy Cập Ứng Dụng
 
-### Yêu Cầu Hệ Thống
-- Node.js v14+
-- MongoDB v4.2+
-- npm v6+ hoặc yarn
+Truy cập ngay StudyMate tại:  
+👉 [https://levanlong2603.github.io/StuyMate_Project/](https://levanlong2603.github.io/StuyMate_Project/)
 
-### Bước 1: Clone dự án
-```bash
-git clone https://github.com/levanlong2603/StuyMate_Project.git
-cd StuyMate_Project
+## 📜 Giấy Phép
+
+Dự án được cấp phép theo [MIT License](LICENSE).
+
+## 📞 Liên Hệ
+
+- Tác giả: **Lê Văn Long**
+- Email: [long.le@example.com](mailto:long.le@example.com) *(thay bằng email thực)*
+- GitHub: [@levanlong2603](https://github.com/levanlong2603)
+
+---
+
+⭐ Nếu bạn thấy dự án hữu ích, hãy để lại sao trên GitHub để ủng hộ chúng tôi!
