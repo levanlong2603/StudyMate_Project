@@ -11,20 +11,30 @@
     <script src="./assets/js/jquery3.6.0.js"></script>
     <style>
         /* Header Styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
         nav {
-            background-color: #ebece4;
+            background-color: #ecebe4;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
+            margin: 0;
+            padding: 0;
+            border-radius: 0;
         }
-        
+
         .main-content .body {
             display: flex;
-            align-items: center;
-            padding: 10px 0;
+            align-items: center; /* hoặc flex-start nếu muốn đẩy nội dung lên */
+            padding: 0;
             height: 50px;
+            margin: 0;
         }
+
         
         
         .logo {
@@ -63,47 +73,60 @@
             color: #e51e2a;
         }
         
-        /* Dropdown Menu - Đã điều chỉnh */
+        /* Dropdown Menu *//* Dropdown container */
         .dropdown {
             position: relative;
         }
-        
+
+        /* Dropdown content */
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: #fff;
             min-width: 220px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             border-radius: 4px;
             z-index: 1;
             top: 100%;
             left: 0;
-            text-align: left; /* Căn lề trái cho dropdown */
-            padding: 5px 0; /* Thêm padding để giãn cách */
-        }
-        
-        .dropdown-content li {
+            text-align: left;
+            padding: 0; /* Xoá padding để tránh lệch hàng */
+            list-style: none;
             margin: 0;
         }
-        
-        .dropdown-content a {
+
+        /* Các item trong dropdown */
+        .dropdown-content li {
+            margin: 0;
+            padding: 0;
             display: block;
-            padding: 8px 15px; /* Giảm padding để thu nhỏ kích thước */
+        }
+
+        /* Link trong mỗi item */
+        .dropdown-content a {
+            display: flex; /* Dùng flex để canh nội dung thẳng hàng */
+            align-items: center; /* Căn giữa theo chiều dọc */
+            padding: 10px 16px;
             color: #333;
             text-decoration: none;
+            font-size: 14px;
             border-bottom: 1px solid #f5f5f5;
-            font-size: 14px; /* Giảm cỡ chữ một chút */
+            white-space: nowrap; /* Tránh xuống dòng */
+            width: 100%;
+            box-sizing: border-box;
         }
-        
+
+        /* Hover effect */
         .dropdown-content a:hover {
             background-color: #f8f8f8;
             color: #e51e2a;
         }
-        
+
+        /* Hiện dropdown khi hover */
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        
+
         /* Search Box */
         .search-box {
             position: relative;
