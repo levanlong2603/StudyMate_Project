@@ -52,7 +52,7 @@ StudyMate là nền tảng web hỗ trợ sinh viên **tìm kiếm, quản lý v
 ## 🌐 Truy Cập Ứng Dụng
 
 Truy cập ngay StudyMate tại:  
-👉 [https://levanlong2603.github.io/StuyMate_Project/](https://levanlong2603.github.io/StudyMate_Project/assets/img/trangchu.jpg)
+👉 [https://levanlong2603.github.io/StuyMate_Project/](https://levanlong2603.github.io/StudyMate_Project/assets/img/trangchu)
 
 ## 📞 Liên Hệ
 
