@@ -1,8 +1,8 @@
 # 🎓 StudyMate - Người Bạn Đồng Hành Học Tập Thông Minh
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://levanlong2603.github.io/StuyMate_Project/)
-[![GitHub license](https://img.shields.io/github/license/levanlong2603/StuyMate_Project)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/levanlong2603/StuyMate_Project)](https://github.com/levanlong2603/StuyMate_Project/stargazers)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://levanlong2603.github.io/StudyMate_Project/)
+[![GitHub license](https://img.shields.io/github/license/levanlong2603/StudyMate_Project)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/levanlong2603/StuyMate_Project)](https://github.com/levanlong2603/StudyMate_Project/stargazers)
 
 ## 🌟 Giới Thiệu
 
